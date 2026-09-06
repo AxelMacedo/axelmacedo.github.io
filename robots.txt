@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://axelmacedo.com/sitemap.xml
