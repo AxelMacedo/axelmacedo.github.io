@@ -13,79 +13,54 @@
     *{box-sizing:border-box;margin:0;padding:0}
     html,body{width:100%;height:100%}
     body{background:#09060b;color:var(--cream);font-family:Cinzel,Georgia,serif;overflow:hidden}
-
-    .home{
-      min-height:100vh;position:relative;display:grid;place-items:center;text-align:center;overflow:hidden;
-      background-image:
-        linear-gradient(rgba(12,5,12,.38),rgba(7,5,9,.58)),
-        url("houston-site.jpg");
-      background-size:cover;
-      background-position:center center;
-      background-repeat:no-repeat;
-    }
-
-    .home:before{content:"";position:absolute;inset:-20%;opacity:.28;background:
-      radial-gradient(ellipse at 25% 20%,rgba(137,47,69,.6),transparent 20%),
-      radial-gradient(ellipse at 50% 25%,rgba(105,39,61,.5),transparent 24%),
-      radial-gradient(ellipse at 78% 18%,rgba(120,42,64,.55),transparent 20%),
-      radial-gradient(ellipse at 42% 45%,rgba(70,25,48,.45),transparent 28%);
-      filter:blur(35px);transform:scale(1.1);z-index:1}
-
+    .home{min-height:100vh;position:relative;display:grid;place-items:center;text-align:center;overflow:hidden;background-image:linear-gradient(rgba(12,5,12,.38),rgba(7,5,9,.58)),url("houston-site.jpg");background-size:cover;background-position:center center;background-repeat:no-repeat}
+    .home:before{content:"";position:absolute;inset:-20%;opacity:.28;background:radial-gradient(ellipse at 25% 20%,rgba(137,47,69,.6),transparent 20%),radial-gradient(ellipse at 50% 25%,rgba(105,39,61,.5),transparent 24%),radial-gradient(ellipse at 78% 18%,rgba(120,42,64,.55),transparent 20%);filter:blur(35px);transform:scale(1.1);z-index:1}
     .stars{position:absolute;inset:0;z-index:2;background-image:radial-gradient(circle,rgba(255,232,170,.9) 0 1px,transparent 1.5px);background-size:170px 150px;opacity:.3}
-
     .content{position:relative;z-index:20;padding:30px 22px;margin-top:-3vh;text-shadow:0 5px 25px rgba(0,0,0,.85)}
     .name{font-size:clamp(.8rem,1.8vw,1.2rem);letter-spacing:.38em;color:var(--gold2);margin-bottom:28px}
     h1{font-size:clamp(2.8rem,8vw,8.2rem);line-height:1.02;letter-spacing:.065em;font-weight:700;color:var(--cream)}
-    .ornament{width:min(500px,70vw);height:2px;margin:30px auto 25px;background:linear-gradient(90deg,transparent,var(--gold),transparent);position:relative}
-    .ornament:after{content:"◆";position:absolute;left:50%;top:-12px;transform:translateX(-50%);font-size:15px;color:var(--gold2)}
-    .born{font-size:clamp(.75rem,1.8vw,1.15rem);letter-spacing:.45em;color:#f1ddb0;text-transform:uppercase}
+    .ornament{width:min(500px,70vw);height:2px;margin:30px auto 25px;background:linear-gradient(90deg,transparent,var(--gold),transparent);position:relative}.ornament:after{content:"◆";position:absolute;left:50%;top:-12px;transform:translateX(-50%);font-size:15px;color:var(--gold2)}
 
+    /* Modern reusable-rocket-inspired flight animation */
     .rocket-flight{position:absolute;inset:0;z-index:15;pointer-events:none;overflow:hidden}
-    .rocket-wrap{position:absolute;left:-120px;top:68%;width:105px;height:105px;animation:fly 9s cubic-bezier(.45,.05,.35,1) infinite}
-    .rocket{width:88px;height:88px;transform:rotate(-35deg);filter:drop-shadow(0 0 16px rgba(255,184,70,1))}
-    .flame{position:absolute;left:-25px;top:58px;width:58px;height:18px;background:linear-gradient(90deg,#fffbd0,#ffd45c,#ff7a18,#e63116,transparent);border-radius:50%;filter:blur(2px);animation:flicker .12s infinite alternate;z-index:-1}
-    .smoke{position:absolute;left:-70px;top:62px;width:150px;height:22px;border-radius:50%;background:linear-gradient(90deg,rgba(255,225,170,.4),transparent);filter:blur(8px)}
-    @keyframes fly{
-      0%{left:-12%;top:72%;transform:rotate(-8deg) scale(.7);opacity:0}
-      6%{opacity:1}
-      28%{left:18%;top:55%;transform:rotate(-8deg) scale(.9);opacity:1}
-      52%{left:46%;top:38%;transform:rotate(-8deg) scale(1);opacity:1}
-      76%{left:72%;top:20%;transform:rotate(-8deg) scale(.85);opacity:1}
-      94%{left:103%;top:3%;transform:rotate(-8deg) scale(.7);opacity:1}
-      100%{left:115%;top:-5%;opacity:0}
-    }
-    @keyframes flicker{from{transform:scaleX(.75);opacity:.75}to{transform:scaleX(1.25);opacity:1}}
-
+    .rocket-wrap{position:absolute;left:-160px;top:72%;width:92px;height:170px;animation:fly 11s cubic-bezier(.45,.05,.35,1) infinite;filter:drop-shadow(0 0 12px rgba(255,174,65,.55))}
+    .rocket{position:absolute;right:0;top:0;width:74px;height:145px;transform:rotate(38deg);overflow:visible}
+    .rocket-body{fill:url(#steel);stroke:#aeb3b8;stroke-width:1.2}
+    .rocket-dark{fill:#20242a}
+    .rocket-fin{fill:#9da2a7;stroke:#656a70;stroke-width:1}
+    .rocket-window{fill:#0d1218;stroke:#d4b56a;stroke-width:2}
+    .rocket-band{fill:#20242a}
+    .flame{position:absolute;left:4px;bottom:-5px;width:45px;height:75px;background:linear-gradient(180deg,#fff8b5 0%,#ffd34e 28%,#ff8a22 58%,#e33a15 82%,transparent 100%);clip-path:polygon(30% 0,70% 0,100% 30%,65% 100%,50% 75%,35% 100%,0 30%);filter:blur(2px);animation:engine .12s infinite alternate;transform:rotate(38deg)}
+    .inner-flame{position:absolute;left:16px;bottom:7px;width:21px;height:43px;background:linear-gradient(180deg,#fff,#ffe87a,#ff9b26,transparent);clip-path:polygon(25% 0,75% 0,100% 30%,50% 100%,0 30%);animation:engine .08s infinite alternate}
+    .smoke{position:absolute;left:-38px;bottom:-25px;width:120px;height:30px;border-radius:50%;background:radial-gradient(ellipse,rgba(255,205,135,.35),transparent 70%);filter:blur(8px);animation:smoke 1.2s ease-out infinite}
+    @keyframes fly{0%{left:-15%;top:78%;transform:rotate(-8deg) scale(.72);opacity:0}7%{opacity:1}30%{left:18%;top:57%;transform:rotate(-8deg) scale(.9)}52%{left:43%;top:37%;transform:rotate(-8deg) scale(1)}74%{left:69%;top:20%;transform:rotate(-8deg) scale(.88)}92%{left:101%;top:2%;transform:rotate(-8deg) scale(.72);opacity:1}100%{left:116%;top:-10%;opacity:0}}
+    @keyframes engine{from{transform:rotate(38deg) scaleY(.82);opacity:.72}to{transform:rotate(38deg) scaleY(1.15);opacity:1}}
+    @keyframes smoke{0%{transform:translateX(0) scale(.7);opacity:.4}100%{transform:translateX(-65px) scale(1.6);opacity:0}}
     .bottom-glow{position:absolute;left:0;right:0;bottom:0;height:22%;z-index:8;background:linear-gradient(180deg,transparent,rgba(221,88,35,.16));box-shadow:0 -20px 80px rgba(212,181,106,.08)}
-    @media(max-width:700px){.rocket-wrap{width:78px;height:78px}.rocket{width:66px;height:66px}.born{letter-spacing:.25em}}
-    @media(prefers-reduced-motion:reduce){.rocket-wrap{animation:none;left:72%;top:18%}.flame{animation:none}}
+    @media(max-width:700px){.rocket-wrap{width:72px;height:135px}.rocket{width:58px;height:116px}.born{letter-spacing:.25em}}
+    @media(prefers-reduced-motion:reduce){.rocket-wrap{animation:none;left:72%;top:16%}.flame,.inner-flame,.smoke{animation:none}}
   </style>
 </head>
 <body>
   <main class="home">
     <div class="stars"></div>
     <div class="bottom-glow"></div>
-
     <div class="rocket-flight" aria-hidden="true">
       <div class="rocket-wrap">
         <div class="smoke"></div>
-        <div class="flame"></div>
-        <svg class="rocket" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <defs><linearGradient id="body" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#bfc3c8"/></linearGradient></defs>
-          <path d="M54 7C73 19 84 35 84 54C84 67 78 77 68 87L51 70L34 53C44 43 54 29 54 7Z" fill="url(#body)" stroke="#777" stroke-width="2"/>
-          <circle cx="63" cy="34" r="8" fill="#17141a" stroke="#d4b56a" stroke-width="3"/>
-          <path d="M43 61L28 65L34 48Z" fill="#9da2a8" stroke="#666" stroke-width="2"/>
-          <path d="M61 77L58 93L75 83Z" fill="#9da2a8" stroke="#666" stroke-width="2"/>
-          <path d="M51 70L42 78L52 88L60 79Z" fill="#ffb52e"/>
+        <div class="flame"></div><div class="inner-flame"></div>
+        <svg class="rocket" viewBox="0 0 80 150" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs><linearGradient id="steel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".5" stop-color="#d8dce0"/><stop offset="1" stop-color="#9ca2a8"/></linearGradient></defs>
+          <path class="rocket-body" d="M40 3C51 14 58 30 58 55V111C58 122 50 132 40 139C30 132 22 122 22 111V55C22 30 29 14 40 3Z"/>
+          <path class="rocket-dark" d="M22 87H58V105H22Z"/>
+          <path class="rocket-band" d="M23 48H57V54H23Z"/>
+          <circle class="rocket-window" cx="40" cy="37" r="7"/>
+          <path class="rocket-fin" d="M23 91L7 116L23 111Z"/><path class="rocket-fin" d="M57 91L73 116L57 111Z"/>
+          <path fill="#6f757b" d="M29 108H37V126H29Z"/><path fill="#6f757b" d="M43 108H51V126H43Z"/>
         </svg>
       </div>
     </div>
-
-    <div class="content">
-      <div class="name">AXEL MACEDO</div>
-      <h1>BORN IN HOUSTON</h1>
-      <div class="ornament"></div>
-    </div>
+    <div class="content"><div class="name">AXEL MACEDO</div><h1>BORN IN HOUSTON</h1><div class="ornament"></div></div>
   </main>
 </body>
 </html>
